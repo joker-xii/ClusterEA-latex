@@ -1,3 +1,5 @@
+
+
 \vspace*{-2mm}
 \section{Related Work}
 \label{sec:related_work}
@@ -6,33 +8,33 @@
 % Early EA methods rely on hand-crafted features~\cite{YAGO3}, crowdsourcing~\cite{Wikidata14, Hike17}, and OWL semantics~\cite{LogMap11}.
 % They are unrealistic for real-world EA scenarios with symbolic or linguistic heterogeneity.
 Most existing EA proposals find equivalent entities by measuring the similarity between the embeddings of entities. Structures of KGs are the basis for the embedding-based EA methods.
-Representative EA approaches that rely purely on KGs' structures can be divided into two categories, namely \emph{KGE}-\emph{based EA}~\cite{MTransE17, IPTransE17, BootEA18, TransEdge19} and \emph{GNN-based EA}~\cite{GCN-Align18, KECG19, MRAEA20, AliNet20, HyperKA20, MuGNN19}.
-The former incorporates the KG embedding models (e.g., TransE~\cite{TransE13}) to learn entity embeddings; the latter
+Representative EA approaches that rely purely on KGs' structures can be divided into two categories, namely, \emph{KGE}-\emph{based EA}~\cite{MTransE17, IPTransE17, BootEA18, TransEdge19} and \emph{GNN-based EA}~\cite{GCN-Align18, KECG19, MRAEA20, AliNet20, HyperKA20, MuGNN19}.
+The former incorporates the KG embedding models (e.g., TransE~\cite{TransE13}) to learn entity embeddings. The latter
 %GNN-based EA
-learns the entity embeddings using GNNs~\cite{GCN17} that aggregates the neighbors' information of entities.
+learns the entity embeddings using GNNs~\cite{GCN17}, which aggregates the neighbors' information of entities.
 % Though GNN-based models have demonstrated their outstanding performance, %compared to the translational-based ones,
 %Despite this benefit, GNN-based EA lacks
 
-In recent years, GNN-based models have demonstrated their outstanding performance~\cite{DualAMN21}. This is contributed by the strong modeling capability on the non-Euclidean structure of GNNs with anisotropic attention mechanism~\cite{GAT18}. Nevertheless, they suffer from poor scalability~\cite{LargeEA22} due to the difficulty in sampling mini-batches with neighborhood information on KGs. LargeEA~\cite{LargeEA22}, the first study focusing on scalability of EA, proposes to train GNN models on relatively small batches of two KGs independently.
+In recent years, GNN-based models have demonstrated their outstanding performance~\cite{DualAMN21}. This is contributed by the strong modeling capability on the non-Euclidean structure of GNNs with anisotropic attention mechanism~\cite{GAT18}. Nonetheless, they suffer from poor scalability~\cite{LargeEA22} due to the difficulty in sampling mini-batches with neighborhood information on KGs. LargeEA~\cite{LargeEA22}, the first study focusing on the scalability of EA, proposes to train GNN models on relatively small batches of two KGs independently.
 The small batches are generated with a rule-based partition strategy called METIS-CPS.
-However, massive information of both graph structures and seed alignment is lost during the process, resulting in poor structure-based accuracy. By contrast, \ClusterEA{} utilizes neighborhood sampling~\cite{GraphSAGE17}. Specifically, it trains one unified GNN model on the two KGs, during which the loss of structure information is neglectable.  
+However, massive information of both graph structures and seed alignment is lost during the process, resulting in poor structure-based accuracy. In contrast, \ClusterEA{} utilizes neighborhood sampling~\cite{GraphSAGE17}. Specifically, it trains one unified GNN model on the two KGs, during which the loss of structure information is neglectable.
 Moreover, \ClusterEA{} creates mini-batches using multiple aspects of graph information, resulting in better entity equivalent rate than METIS-CPS.
 
 In addition to structure information, many existing proposals facilitate the EA performance by employing \emph{side information} of KGs,  including
-%Such side information includes  
-\emph{entity names} \cite{JAPE17,MultiKE19,DGMC20,DegreeAware20,BERT-INT20, AttrGNN20, EASY21, SEU21, LargeEA22}, \emph{descriptions} \cite{MultiKE19, BERT-INT20}, \emph{images} \cite{EVA20}, and \emph{attributes} \cite{JAPE17,GCN-Align18,MultiKE19,COTSAE20,BERT-INT20,AttrGNN20,EPEA20}.  Such proposals is able to mitigate the geometric problems~\cite{OpenEA2020VLDB}.
-However, the models employing side information mainly have two main limitations. \MARK{First, side information may not be available due to privacy concerns}, especially for
-industrial applications~\cite{DualAMN21,RREA20, MRAEA20}. 
-Second, \MARK{models that incorporating machine translation or pre-aligned word embeddings may be overestimated due to the name bias issue}~\cite{JEANS20, AttrGNN20, EVA20, NoMatch21}. 
+%Such side information includes
+\emph{entity names} \cite{JAPE17,MultiKE19,DGMC20,DegreeAware20,BERT-INT20, AttrGNN20, EASY21, SEU21, LargeEA22}, \emph{descriptions} \cite{MultiKE19, BERT-INT20}, \emph{images} \cite{EVA20}, and \emph{attributes} \cite{JAPE17,GCN-Align18,MultiKE19,COTSAE20,BERT-INT20,AttrGNN20,EPEA20}. Such proposals are able to mitigate the geometric problems~\cite{OpenEA2020VLDB}.
+Nonetheless, the models using side information mainly have two main limitations. \MARK{First, side information may not be available due to privacy concerns}, especially for
+industrial applications~\cite{DualAMN21,RREA20, MRAEA20}.
+Second, \MARK{models that incorporating machine translation or pre-aligned word embeddings may be overestimated due to the name bias issue}~\cite{JEANS20, AttrGNN20, EVA20, NoMatch21}.
 \MARK{Thus, compared with the models employing side information, the structure-only methods are more general and not affected by bias of benchmarks}.
 To this end, we do not incorporate side information in \ClusterEA{}.
 
-% Many studies have been based on this assumption by normalizing the overall similarity matrix between two set of embeddings. These methods 
-In order to solve the geometric problems of embedding-based EA approaches, CSLS~\cite{CSLS} have been widely adopted, which normalizes the similarity matrix in recent studies~\cite{TransEdge19,EVA20, RREA20, EASY21}. 
+% Many studies have been based on this assumption by normalizing the overall similarity matrix between two set of embeddings. These methods
+In order to solve the geometric problems of embedding-based EA approaches, CSLS~\cite{CSLS} have been widely adopted, which normalizes the similarity matrix in recent studies~\cite{TransEdge19,EVA20, RREA20, EASY21}.
 However, \MARK{CSLS does not perform full normalization of the similarity matrix.
-As a result, its improvement over greedy search of top-1-nearest neighbor is limited.} 
-CEA~\cite{CEAFF20, CEAFF21} adopts the Gale-Shapley algorithm~\cite{GaleShapley} to find the stable matching between entities of two KGs, which produces higher-quality results than CSLS. 
-However, the Gale-Shapley algorithm is hard to be parallelized, thus is almost infeasible to perform large scale EA. Recent works have transformed EA into the assignment problem~\cite{EASY21, SEU21}. They adopt Hungarian algorithm~\cite{Hungarian1955} or Sinkhorn iteration~\cite{Sinkhorn13} to normalize the similarity matrix. However, the computation cost of such algorithms is high, prohibiting them from being applied to large scale EA.
+As a result, its improvement over greedy search of top-1-nearest neighbor is limited.}
+CEA~\cite{CEAFF20, CEAFF21} adopts the Gale-Shapley algorithm~\cite{GaleShapley} to find the stable matching between entities of two KGs, which produces higher-quality results than CSLS.
+Nevertheless, the Gale-Shapley algorithm is hard to be parallelized, and hence, it is almost infeasible to perform large scale EA. Recent studies have transformed EA into the assignment problem~\cite{EASY21, SEU21}. They adopt Hungarian algorithm~\cite{Hungarian1955} or Sinkhorn iteration~\cite{Sinkhorn13} to normalize the similarity matrix. However, the computational cost of such algorithms is high, prohibiting them from being applied to large scale EA.
 \ClusterEA{} also utilizes Sinkhorn iteration~\cite{Sinkhorn13} which performs full normalization on the similarity matrix with GPU acceleration. Moreover, \ClusterEA{} develops novel batch-sampling methods for adopting the normalization to large-scale datasets with the loss of information being minimized.
 
 

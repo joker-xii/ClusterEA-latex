@@ -1,13 +1,15 @@
+
+
 % \vspace{-4mm}
 \section{Preliminaries}
 \label{sec:define}
-We proceed to introduce preliminary definitions. Based on this, we formalize the problem of entity alignment.
+We proceed to introduce preliminary definitions. Based on these, we formalize the problem of entity alignment.
 
 %\noindent
 %\textbf{Knowledge Graphs.}
 \vspace{-2mm}
 \begin{myDef}
-A \textbf{knowledge graph} (KG) can be denoted as $G = (E,R,T)$, where $E$ is the set of entities, $R$ is the set of relations, and $T=\{(h,r,t)~|~h,t \in E, r \in R\}$ is the set of triples, each of which represents an edge between the head entity $h$ to the tail entity $t$ with the relation $r$.
+A \textbf{knowledge graph} (KG) can be denoted as $G = (E,R,T)$, where $E$ is the set of entities, $R$ is the set of relations, and $T=\{(h,r,t)~|~h,t \in E, r \in R\}$ is the set of triples, each of which represents an edge from the head entity $h$ to the tail entity $t$ with the relation $r$.
 \end{myDef}
 
 %\noindent
@@ -15,16 +17,16 @@ A \textbf{knowledge graph} (KG) can be denoted as $G = (E,R,T)$, where $E$ is th
 \vspace{-3mm}
 \begin{myDef}
 \label{sec:problem_statement}
-\textbf{Entity alignment} (EA) \cite{OpenEA2020VLDB} aims to find the 1-to-1 mapping of entities $\phi$ from a source KG $G_s = (E_s,R_s,T_s)$ to a target KG $G_t = (E_t,R_t,T_t)$. 
+\textbf{Entity alignment} (EA) \cite{OpenEA2020VLDB} aims to find the 1-to-1 mapping of entities $\phi$ from a source KG $G_s = (E_s,R_s,T_s)$ to a target KG $G_t = (E_t,R_t,T_t)$.
 Formally, $\phi = \{(e_s, e_t) \in E_s \times E_t~|~e_s \equiv e_t\}$, where
 $e_s \in E_s$, $e_t \in E_t$, and $\equiv$ is an equivalence relation between $e_s$ and $e_t$.
 In most cases, a small set of equivalent entities $\phi^{\prime} \subset \phi$ \MARK{is known beforehand and} used as seed alignment.
 \end{myDef}
- %(training data, in other words). 
- 
+ %(training data, in other words).
+
 %\noindent
 %\textbf{Embedding-based Entity Alignment.}
 \vspace{-2mm}
 \begin{myDef}
-\textbf{Embedding-based EA} aims to learn a set of embeddings for all entities $E_s$ and $E_t$, denoted as $\mathbf{f}\in \mathcal{R}^{(|E_s|+|E_t|)\times D}$, and then tries to maximize the similarity (e.g. cosine similarity) of entities that are equivalent in $\phi$, where $D$ is the size of embedding vectors.
-\end{myDef}
+\textbf{Embedding-based EA} aims to learn a set of embeddings for all entities $E_s$ and $E_t$, denoted as $\mathbf{f}\in \mathcal{R}^{(|E_s|+|E_t|)\times D}$, and then, it tries to maximize the similarity (e.g. cosine similarity) of entities that are equivalent in $\phi$, where $D$ is the size of embedding vectors.
+\end{myDef} 

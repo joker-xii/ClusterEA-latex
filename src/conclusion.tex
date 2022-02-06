@@ -4,7 +4,7 @@
 \label{sec:conclusions}
 
 In this paper, we present \ClusterEA{} to align entities between large-scale knowledge graphs with stochastic training and normalized similarities.
-\ClusterEA{} introduces three components, including stochastic training, \Sampling{} and \Merging{} to perform large-scale EA task based solely on structure information.
-We first train a large-scale Siamese GNN for EA in a stochastic fashion to produce entity embeddings. Afterward, we propose a novel \Sampling{} strategy for sampling highly overlapped mini-batches taking advantage of the trained embeddings. Finally, we propose a \Merging{} process which first normalize local and global similarity, and fuse all similarity to obtain the final similarity matrix. The whole process of \ClusterEA{} guarantees both high accuracy and comparable scalability. 
-Considerable experimental results on EA benchmarks with different scales demonstrate \ClusterEA{} significantly outperforms previous large-scale EA study.
-In the future, we would like to explore recently proposed dangling settings~\cite{NoMatch21} of EA on large scale datasets.
+\ClusterEA{} contains three components, including stochastic training, \Sampling{}, and \Merging{}, to perform large-scale EA task based solely on structure information.
+We first train a large-scale Siamese GNN for EA in a stochastic fashion to produce entity embeddings. Next, we propose a novel \Sampling{} strategy for sampling highly overlapped mini-batches taking advantage of the trained embeddings. Finally, we present a \Merging{} process, which first normalizes local and global similarities, and then fuses them to obtain the final similarity matrix. The whole process of \ClusterEA{} guarantees both high accuracy and comparable scalability.
+Considerable experimental results on EA benchmarks with different scales demonstrate that \ClusterEA{} significantly outperforms previous large-scale EA study.
+In the future, we would like to explore recently proposed dangling settings~\cite{NoMatch21} of EA on large scale datasets. 
