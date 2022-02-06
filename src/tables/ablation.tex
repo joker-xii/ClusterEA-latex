@@ -1,0 +1,19 @@
+\begin{table}[t]\small
+\caption{The result of ablation}\label{exp:abl}
+\vspace*{-4mm}
+\setlength{\tabcolsep}{1mm}{
+\begin{tabular}{l|ccc|ccc}
+\toprule
+\multicolumn{1}{c|}{\multirow{2}{*}{Methods}} & \multicolumn{3}{c|}{DBP1M$_{EN-FR}$}  & \multicolumn{3}{c}{DBP1M$_{EN-DE}$}  \\ \cline{2-7}
+\multicolumn{1}{c|}{} & \multicolumn{1}{c}{H@1} & \multicolumn{1}{c}{H@10} & \multicolumn{1}{c|}{MRR} & \multicolumn{1}{c}{H@1} & \multicolumn{1}{c}{H@10} & \multicolumn{1}{c}{MRR}  \\ \hline
+\ClusterEA{}                    & \textbf{28.1} & 47.4 & \textbf{0.35} & \textbf{28.8} & \textbf{48.8} &  \textbf{0.35}\\
+\ClusterEA{} - \SparseCSLS{}    & 27.9 & 46.2 & 0.34 & 28.4 & 46.0 &  0.34\\
+\ClusterEA{} - Global Sim       & 27.6 & \textbf{48.3} & 0.34 & 28.3 & 48.7 &  \textbf{0.35}\\
+\ClusterEA{} - Sinkhorn         & 20.0 & 46.1 & 0.29 & 22.7 & 46.2 &  0.30\\
+\ClusterEA{} - \KMeans{}        & 26.5 & 46.2 & 0.33 & 26.8 & 47.1 &  0.33\\
+\ClusterEA{} - \MetisGCN{}      & 25.3 & 45.9 & 0.32 & 25.5 & 46.5 &  0.32\\
+\ClusterEA{} - Dual-AMN         & 10.0 & 24.5 & 0.15 & 6.9  & 17.7  &  0.11\\
+\bottomrule
+\end{tabular}}
+% \vspace*{-4mm}
+\end{table} 

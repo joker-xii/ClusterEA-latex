@@ -1,0 +1,22 @@
+
+\begin{table}[t]\small
+\caption{Overall EA results on DBP1M}\label{exp:overall_1M}
+\vspace{-4mm}
+\setlength{\tabcolsep}{0.1mm}{
+\begin{tabular}{l|ccccc|ccccc}
+\toprule
+\multicolumn{1}{c|}{\multirow{2}{*}{Methods}} & \multicolumn{5}{c|}{DBP1M$_{EN-FR}$}  & \multicolumn{5}{c}{DBP1M$_{EN-DE}$}  \\ \cline{2-11}
+\multicolumn{1}{c|}{} & \multicolumn{1}{c}{H@1} & \multicolumn{1}{c}{H@10} & \multicolumn{1}{c}{MRR} & \multicolumn{1}{c}{Time} &  \multicolumn{1}{c|}{Mem.} & \multicolumn{1}{c}{H@1} & \multicolumn{1}{c}{H@10} & \multicolumn{1}{c}{MRR} & \multicolumn{1}{c}{Time} & Mem. \\ \hline
+LargeEA-G & 5.1 & 13.4 & 0.08 & \textbf{463}  & \textbf{4.00G}   & 3.4 & 9.5 & 0.05 & \textbf{378} & \textbf{4.00G}\\
+LargeEA-R & 9.4 & 21.5 & 0.13 & 1681  & 20.05G  & 6.4 & 15.0 & 0.09 & 1309 & 20.49G \\
+LargeEA-D & 10.5 & 21.9 & 0.15 & 2546  & 19.72G  & 6.6 & 14.7 & 0.09 & 1692 & 17.71G \\
+GCN-Align-S & 6.0 & 19.1  & 0.10 & 1817  & 9.25G & 4.5 & 14.4  & 0.08 & 1491  & 7.78G \\
+RREA-S & 21.1 & 42.2  & 0.28 & 2080  & 16.86G  & 20.5 & 40.2  & 0.27 & 1754  & 15.65G \\
+Dual-AMN-S & 22.4 & 43.4  & 0.29 & 588  & 15.85G  & 22.0 & 41.7  & 0.28 & 490  & 14.61G\\
+\textbf{\ClusterEA{-G}} & 10.0 & 24.5 & 0.15 & 2501  & 17.43G  & 6.9 & 17.7 & 0.11 & 2027  & 17.76G \\
+\textbf{\ClusterEA{-R}}& 26.0 & 45.6  & 0.32 & 3025  & 21.11G& 25.0 & 45.0  & 0.32 & 2526  & 19.68G \\
+\textbf{\ClusterEA{-D}}& \textbf{28.1} & \textbf{47.4}  & \textbf{0.35} & 1647  & 20.10G  & \textbf{28.8} & \textbf{48.8}  & \textbf{0.35} & 1360 & 18.20G \\
+\bottomrule
+\end{tabular}}
+\vspace*{-4.0mm}
+\end{table}

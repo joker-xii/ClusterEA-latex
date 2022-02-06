@@ -1,0 +1,10 @@
+
+\begin{abstract}
+Entity alignment (EA) aims at finding equivalent entities in different knowledge graphs (KGs). Embedding-based approaches have dominated the EA task in recent years.
+These methods face problems that come from the geometric properties of embedding vectors, including hubness and isolation. To solve these geometric problems, many normalization approaches have been adopted to EA. 
+However, the increasing scale of KGs renders it is hard for EA models to adopt these normalization processes, thus limiting their usage in real-world applications. To tackle this challenge, we present \ClusterEA{}, a general framework that is capable of scaling up EA models and enhancing their results by leveraging normalization methods on mini-batches with a high entity equivalent rate.
+\ClusterEA{} encompasses three components to align entities between large-scale KGs, including stochastic training, \Sampling{} and \Merging{}.
+Specifically, it first trains a large-scale Siamese GNN for EA in a stochastic fashion to produce entity embeddings. Based on the embeddings, a novel \Sampling{} strategy is proposed for sampling highly overlapped mini-batches. Finally, \ClusterEA{} incorporates \Merging{}, which normalizes local and global similarity and then fuses all similarity matrices to obtain the final similarity matrix.
+Extensive experiments with real-life datasets on EA benchmarks offer insight into the proposed framework and suggest that it is capable of outperforming the state-of-the-art scalable EA framework by up to $8$ times in terms of $Hits@1$.
+\end{abstract}
+%Hit@1?
